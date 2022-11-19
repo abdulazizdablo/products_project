@@ -9,7 +9,6 @@ import $ from "jquery";
 function ProductList() {
   const [data, setData] = useState([]);
   const [remove, setRemove] = useState([]);
-  console.log("hi")
 
   //using useEffect hook to initial render with fetched products from Database
 

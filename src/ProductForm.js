@@ -7,58 +7,6 @@ import { Button, Form, Row, Col, Container } from "react-bootstrap";
 import { InputLabel, MenuItem, Select } from "@mui/material";
 import $ from "jquery";
 
-/*const handleDisplay = (event) => {
-  event.preventDefault();
-  if (event.target.value === "dvd") {
-  setDisplay('dvd') 
-  } else if (event.target.value === "book") {
-    setDisplay('book')
-  }
-  else (event.target.value === "furniture")
-setDisplay('furniture')
-
-
-  
-};*/
-
-/*const handlChange = (e)=>{
-
-setProduct(e.target.value)
-
-
-
-}*/
-
-/*const diplayDialouge = ()=>{
- 
-  let dialogue;
-  
-
-
-return dialogue
-
-}*/
-
-/*product === 'dvd'
-?setDVD(true)
-:setDVD(false)
-
-product === 'book'
-?setBook(true)
-:setBook(false)
-
-product === 'furniture'
-?setFurniture(true)
-:setFurniture(false)*/
-
-/*const handleDisplay= (e)=>{
-
-setProduct(e.target.value);
-
-
-
-
-}*/
 
 function ProductForm() {
   const {
@@ -83,6 +31,8 @@ function ProductForm() {
   // I used here for validation regex instead of parseInt because parseint
   // could cause problems for missusing it like ommiting an octal or hex number
   // it will recognize 08 as 0
+
+
 
   const RegisterOptions = {
     SKU: { required: "Please, submit required data" },
@@ -153,7 +103,6 @@ function ProductForm() {
   const onFormSubmit = (data, e) => {
     e.preventDefault();
     const form = $(e.target);
-    console.log(form);
 
     $.ajax({
       type: "POST",
@@ -166,9 +115,7 @@ function ProductForm() {
       complete: function (data) { },
       error: function (data) {
         let err = JSON.parse(data.responseText);
-        console.log(err.error);
-        console.log(data);
-        console.log(Object.keys(err))
+        
 
         if (err.error === 1062) {
           setError(
@@ -307,7 +254,7 @@ function ProductForm() {
           </Row>
         </Form.Group>
 
-        <div className=" d-flex flex-row align-items-center">
+        <div className=" d-flex align-items-center ">
           <InputLabel className="mb-2 ms-8" id="label">
             Type Switcher
           </InputLabel>
@@ -327,7 +274,6 @@ function ProductForm() {
                 value={product}
                 className="mb-3 mt-2 me-0"
                 sx={{
-                  justifyContent: "flex-start",
                   marginLeft: 27,
                 }}
                 style={{ width: "8rem" }}
