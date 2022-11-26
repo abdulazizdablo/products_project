@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App1\Models;
+require_once "SPLAutoload.php";
 
 
-use App\Database\Database;
+use App1\Database\Database;
+use App1\Services\ProductService;
 
 /**
  * Product Main Class

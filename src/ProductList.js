@@ -21,7 +21,7 @@ function ProductList() {
     let deleteButtonName = e.target.getAttribute("name");
     $.ajax({
       type: "POST",
-      url: "src/Http/ProductController.php",
+      url: "src/Http/ProductController/delete",
       data: { data: remove, delete: deleteButtonName },
 
       success: function(data) {
@@ -45,7 +45,7 @@ function ProductList() {
   };
 
   async function getData() {
-    let result = await fetch("src/Http/ProductController.php");
+    let result = await fetch("src/Http/ProductController/index");
     result = await result.json();
     setData(result);
   }
@@ -83,7 +83,8 @@ function ProductList() {
             <Checkbox
               size="small"
               sx={{
-                justifyContent: "flex-start",
+                padding: "2px",
+                marginLeft:"4px"
               }}
               inputProps={{
                 "aria-label": "delete Checkbox",
@@ -92,7 +93,7 @@ function ProductList() {
               onChange={DeleteItems}
               value={item.SKU}
               type="checkbox"
-              style={{ padding: "2px", width: "1rem" }}
+              style={{ padding: "3px", width: "1rem" }}
             />
 
             <p>{item.SKU}</p>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App1;
 
 /**
  * This class is responsible for autloading classes with Autoload method
@@ -24,6 +24,7 @@ class SPLAutoload
 
         spl_autoload_register(function ($class_name) {
             $basedir = __DIR__ . '/src';
+
             $class_name = str_replace(__NAMESPACE__, "", $class_name);
             $file_name = $basedir . DIRECTORY_SEPARATOR . $class_name . '.php';
             $file_name = str_replace("\\", "/", $file_name);

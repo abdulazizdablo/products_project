@@ -112,12 +112,10 @@ function ProductForm() {
         navigate("/");
       },
 
-      complete: function (data) { },
       error: function (data) {
         let err = JSON.parse(data.responseText);
-        
 
-        if (err.error === 1062) {
+        if (err === 1062) {
           setError(
             "SKU",
             {
@@ -126,13 +124,7 @@ function ProductForm() {
             },
             { shouldFocus: true }
           );
-        } else {
-          setError(
-            Object.keys(err),
-            { type: "focus", message: Object.values(err) },
-            { shouldFocus: true }
-          );
-        }
+        } 
       },
     });
   };
@@ -142,7 +134,7 @@ function ProductForm() {
       <Form
         id="product_form"
         method="POST"
-        action="src/Http/ProductController.php"
+        action="src/Http/ProductController/store"
         onSubmit={handleSubmit(onFormSubmit, onErrors)}
       >
         <Row className="mt-3 align-items-center">

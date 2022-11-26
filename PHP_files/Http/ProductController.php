@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http;
+namespace App1\Http;
 
-
-use App\Database\Database;
-use App\Http\Request;
+require_once "SPLAutoload.php";
+use App1\Database\Database;
+use App1\Http\Request;
 
 /**
  * ProductController Class
@@ -18,8 +18,30 @@ use App\Http\Request;
 
 class ProductController
 {
+   /* protected $product_service = null;
 
-    public  static function getProducts()
+    function __construct()
+    {
+        var_dump($_SERVER['REQUEST_URI']);
+        
+       /* if ($request->getMethod() == "GET") {
+            $controller = new ProductController();
+            $controller->getProducts();
+
+        } else if ($request->getMethod() == "POST" && isset($request->getBody()['product'])) {
+
+            $controller = new ProductController();
+            $controller->storeProduct();
+        } else if ($request->getMethod() == "POST" && isset($request->getBody()['delete'])) {
+
+
+            $controller = new ProductController();
+            $controller->deleteProducts();
+        }
+        */
+   /* }*/
+
+    public  function index()
     {
         $db = Database::getInstance();
         $mysqli = $db->getConnection();
@@ -32,11 +54,11 @@ class ProductController
         $result = $mysqli->query($sqlQuery);
         echo json_encode($result->fetch_all(MYSQLI_ASSOC));
     }
-    public static function storeProduct()
+    public function store()
     {
         if (isset($_POST['product'])) {
             $product_name = $_POST['product'];
-            $product_name = "\\App\\Models\\" . $product_name;
+            $product_name = "\\App1\\Models\\" . $product_name;
             $product = new $product_name();
             $product->setSKU();
             $product->setName();
@@ -47,7 +69,7 @@ class ProductController
     }
 
 
-    public static function deleteProducts()
+    public function delete()
     {
         $deleted_data = $_POST['data'];
         $countof_data = count($deleted_data);
@@ -59,23 +81,6 @@ class ProductController
         $statment->bind_param($binding_params, ...$deleted_data);
         $statment->execute();
     }
-    public static function productHandler()
-    {
-        $request = new Request();
-
-        if ($request->getMethod() == "GET") {
-
-            ProductController::getProducts();
-        } else if ($request->getMethod() == "POST" && isset($request->getBody()['product'])) {
-
-            ProductController::storeProduct();
-        } else if ($request->getMethod() == "POST" && isset($request->getBody()['delete'])) {
-
-
-            ProductController::deleteProducts();
-        }
-    }
+  
 }
-ProductController::productHandler();
-
 // EOF

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Database;
+namespace App1\Database;
 
+require_once "SPLAutoload.php";
 
 
 /*

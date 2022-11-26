@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App1\Models;
 
+require_once "SPLAutoload.php";
 
-use App\Models\Product;
+use App1\Models\Product;
 
 
 /**
