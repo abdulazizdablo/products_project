@@ -3,8 +3,6 @@
 namespace App1;
 
 
-
-
 /**
  * this class responsible for instantiate the controller and proper method
  * using the server url
