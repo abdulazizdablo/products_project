@@ -11,7 +11,6 @@ namespace App\Http;
  * @package App
  * 
  */
-require "../../SPLAutoload.php";
 
 
 class Request
