@@ -2,8 +2,6 @@
 
 namespace App1\Database;
 
-require_once "SPLAutoload.php";
-
 
 /*
     * Mysql database class - only one connection alowed
