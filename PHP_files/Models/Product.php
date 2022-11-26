@@ -2,7 +2,7 @@
 
 namespace App1\Models;
 
-
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 use App1\Database\Database;
 
 /**
