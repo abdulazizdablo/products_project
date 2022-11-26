@@ -1,12 +1,11 @@
 <?php
 
 /**
- * PHP initialization
+ * PHP controller and method initialization through App class 
  * 
  *
  * 
  */
-require_once "SPLAutoload.php";
 
 use App1\App;
 
