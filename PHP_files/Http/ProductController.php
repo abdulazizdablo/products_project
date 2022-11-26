@@ -41,7 +41,7 @@ class ProductController
         */
    /* }*/
 
-    public  function index()
+    public function index()
     {
         $db = Database::getInstance();
         $mysqli = $db->getConnection();
