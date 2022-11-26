@@ -17,30 +17,7 @@ use App1\Http\Request;
 
 class ProductController
 {
-   /* protected $product_service = null;
-
-    function __construct()
-    {
-        var_dump($_SERVER['REQUEST_URI']);
-        
-       /* if ($request->getMethod() == "GET") {
-            $controller = new ProductController();
-            $controller->getProducts();
-
-        } else if ($request->getMethod() == "POST" && isset($request->getBody()['product'])) {
-
-            $controller = new ProductController();
-            $controller->storeProduct();
-        } else if ($request->getMethod() == "POST" && isset($request->getBody()['delete'])) {
-
-
-            $controller = new ProductController();
-            $controller->deleteProducts();
-        }
-        */
-   /* }*/
-
-    public function index()
+      public function index()
     {
         $db = Database::getInstance();
         $mysqli = $db->getConnection();
@@ -53,6 +30,7 @@ class ProductController
         $result = $mysqli->query($sqlQuery);
         echo json_encode($result->fetch_all(MYSQLI_ASSOC));
     }
+   
     public function store()
     {
         if (isset($_POST['product'])) {
@@ -66,7 +44,6 @@ class ProductController
             $product->save();
         }
     }
-
 
     public function delete()
     {
