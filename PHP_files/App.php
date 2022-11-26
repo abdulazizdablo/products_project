@@ -4,7 +4,6 @@ namespace App1;
 
 
 
-require_once "SPLAutoload.php";
 
 /**
  * this class responsible for instantiate the controller and proper method
