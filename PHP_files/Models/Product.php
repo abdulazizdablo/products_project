@@ -1,7 +1,6 @@
 <?php
 
 namespace App1\Models;
-require_once "SPLAutoload.php";
 
 
 use App1\Database\Database;
