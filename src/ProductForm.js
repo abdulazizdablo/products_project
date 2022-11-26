@@ -21,7 +21,6 @@ function ProductForm() {
       price: "",
     },
   });
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition -- types are not aware of older browsers that don't implement `labels`
   const Product = useMemo(() =>
     React.lazy(() => import(`./Products/${product}`))
     );
@@ -114,7 +113,7 @@ function ProductForm() {
 
       error: function (data) {
         let err = JSON.parse(data.responseText);
-
+        
         if (err === 1062) {
           setError(
             "SKU",
@@ -226,14 +225,7 @@ function ProductForm() {
                     {...field}
                     min={0}
                     type="number"
-                    style={{
-
-
-
-                      width: "18rem"
-
-
-                    }}
+                    style={{ width: "18rem"}}
                     className="ms-1 mb-2"
                   />
                 )}
@@ -266,7 +258,7 @@ function ProductForm() {
                 value={product}
                 className="mb-3 mt-2 me-0"
                 sx={{
-                  marginLeft: 27,
+                  marginLeft: 27
                 }}
                 style={{ width: "8rem" }}
                 onChange={(e) => {
