@@ -2,7 +2,6 @@
 
 namespace App1\Http;
 
-require_once "SPLAutoload.php";
 use App1\Database\Database;
 use App1\Http\Request;
 
