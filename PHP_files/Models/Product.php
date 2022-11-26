@@ -4,7 +4,6 @@ namespace App1\Models;
 
 
 use App1\Database\Database;
-use App1\Services\ProductService;
 
 /**
  * Product Main Class
