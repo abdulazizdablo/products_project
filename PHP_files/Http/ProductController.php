@@ -8,7 +8,7 @@ use App1\Http\Request;
 /**
  * ProductController Class
  * this class for handling products CRD Operations (create,read,delete)
- * with the corresponding static methods
+ * with the corresponding methods
  *
  * @author Abdulaziz Dablo
  * @package App
