@@ -1,6 +1,6 @@
 <?php
 
-namespace App1\src\Models;
+namespace App1\Models;
 
 use App1\Models\Product;
 
