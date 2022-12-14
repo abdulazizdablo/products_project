@@ -2,6 +2,7 @@
 
 namespace App1\Http;
 
+
 use App1\Database\Database;
 use App1\Http\Request;
 
@@ -17,10 +18,11 @@ use App1\Http\Request;
 
 class ProductController
 {
-      public function index()
+
+    public function index()
     {
         $db = Database::getInstance();
-        $mysqli = $db->getConnection();
+        $mysqli =    $db->getConnection();
         $sqlQuery = "SELECT SKU,name,price, 
         CONCAT_WS(', ',
         CONCAT('Size : ', size,'MB'),
@@ -30,7 +32,7 @@ class ProductController
         $result = $mysqli->query($sqlQuery);
         echo json_encode($result->fetch_all(MYSQLI_ASSOC));
     }
-   
+    
     public function store()
     {
         if (isset($_POST['product'])) {
@@ -57,6 +59,5 @@ class ProductController
         $statment->bind_param($binding_params, ...$deleted_data);
         $statment->execute();
     }
-  
 }
 // EOF
